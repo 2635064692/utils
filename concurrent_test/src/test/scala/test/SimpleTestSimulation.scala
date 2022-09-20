@@ -14,7 +14,7 @@ class SimpleTestSimulation extends Simulation {
    * 设置请求的根路径
    */
   val httpConf = http.
-    baseUrl("http://localhost:9601/ProductService")
+    baseUrl("https://www.baidu.com")
     .acceptHeader("*/*")
     .authorizationHeader("bearer 1c14f2f9-2162-49fb-943e-8baf7151c921")
     .contentTypeHeader("application/json")
@@ -25,7 +25,7 @@ class SimpleTestSimulation extends Simulation {
   object HttpDemo {
     val demo = exec(
       http("baidu_home").
-        post("/store/product/queryOverview").
+        post("").
         body(StringBody("{\"page\":0,\"size\":10,\"total\":1,\"numberOfElements\":1,\"goodsType\":31,\"status\": 21}")).
         asJson
     )
